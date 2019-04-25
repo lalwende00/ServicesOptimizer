@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="servicesoptimizerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'servicesoptimizer.dbo.services' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MsName" Type="nvarchar(max)" />
+          <Property Name="MsCaption" Type="nvarchar(max)" />
+          <Property Name="MsState" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsStartMode" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsSuggestion" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsNoNetwork" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsDesc" Type="nvarchar(max)" />
+          <Property Name="MsPath" Type="nvarchar(max)" />
+          <Property Name="MsIsChecked" Type="bit" />
+          <Property Name="ColorSet" Type="nvarchar" MaxLength="50" />
+          <Property Name="FontWeightSet" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsGroupe" Type="nvarchar(max)" />
+          <Property Name="MsAction" Type="nvarchar" MaxLength="50" />
+          <Property Name="MsToolTip" Type="nvarchar(max)" />
+          <Property Name="MsInfo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="servicesoptimizerModelStoreContainer">
+          <EntitySet Name="services" EntityType="Self.services" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [services].[ServiceId] AS [ServiceId], 
+    [services].[MsName] AS [MsName], 
+    [services].[MsCaption] AS [MsCaption], 
+    [services].[MsState] AS [MsState], 
+    [services].[MsStartMode] AS [MsStartMode], 
+    [services].[MsSuggestion] AS [MsSuggestion], 
+    [services].[MsNoNetwork] AS [MsNoNetwork], 
+    [services].[MsDesc] AS [MsDesc], 
+    [services].[MsPath] AS [MsPath], 
+    [services].[MsIsChecked] AS [MsIsChecked], 
+    [services].[ColorSet] AS [ColorSet], 
+    [services].[FontWeightSet] AS [FontWeightSet], 
+    [services].[MsGroupe] AS [MsGroupe], 
+    [services].[MsAction] AS [MsAction], 
+    [services].[MsToolTip] AS [MsToolTip], 
+    [services].[MsInfo] AS [MsInfo]
+    FROM [dbo].[services] AS [services]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="servicesoptimizerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="services">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="MsName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsCaption" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsState" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsStartMode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsSuggestion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsNoNetwork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsIsChecked" Type="Boolean" />
+          <Property Name="ColorSet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FontWeightSet" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsGroupe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsAction" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MsToolTip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MsInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="servicesoptimizerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="services" EntityType="Self.services" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="servicesoptimizerModelStoreContainer" CdmEntityContainer="servicesoptimizerEntities">
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="servicesoptimizerModel.services">
+              <MappingFragment StoreEntitySet="services">
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="MsName" ColumnName="MsName" />
+                <ScalarProperty Name="MsCaption" ColumnName="MsCaption" />
+                <ScalarProperty Name="MsState" ColumnName="MsState" />
+                <ScalarProperty Name="MsStartMode" ColumnName="MsStartMode" />
+                <ScalarProperty Name="MsSuggestion" ColumnName="MsSuggestion" />
+                <ScalarProperty Name="MsNoNetwork" ColumnName="MsNoNetwork" />
+                <ScalarProperty Name="MsDesc" ColumnName="MsDesc" />
+                <ScalarProperty Name="MsPath" ColumnName="MsPath" />
+                <ScalarProperty Name="MsIsChecked" ColumnName="MsIsChecked" />
+                <ScalarProperty Name="ColorSet" ColumnName="ColorSet" />
+                <ScalarProperty Name="FontWeightSet" ColumnName="FontWeightSet" />
+                <ScalarProperty Name="MsGroupe" ColumnName="MsGroupe" />
+                <ScalarProperty Name="MsAction" ColumnName="MsAction" />
+                <ScalarProperty Name="MsToolTip" ColumnName="MsToolTip" />
+                <ScalarProperty Name="MsInfo" ColumnName="MsInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
